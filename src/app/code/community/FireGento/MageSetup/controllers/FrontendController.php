@@ -35,10 +35,10 @@ class FireGento_MageSetup_FrontendController extends Mage_Core_Controller_Front_
     {
         $this->loadLayout();
         if ($id = $this->getRequest()->getParam('id')) {
-            /* @var $processor Mage_Cms_Model_Template_Filter */
+            /* @var Mage_Cms_Model_Template_Filter $processor */
             $processor = Mage::getModel('cms/template_filter');
 
-            /* @var $agreement Mage_Checkout_Model_Agreement */
+            /* @var Mage_Checkout_Model_Agreement $agreement */
             $agreement = Mage::getModel('checkout/agreement')->load($id);
 
             $headBlock = $this->getLayout()->getBlock('head');

@@ -44,7 +44,7 @@ class FireGento_MageSetup_Contacts_IndexController extends Mage_Contacts_IndexCo
         $post = $this->getRequest()->getPost();
         if ($post) {
             $translate = Mage::getSingleton('core/translate');
-            /* @var $translate Mage_Core_Model_Translate */
+            /* @var Mage_Core_Model_Translate $translate */
             $translate->setTranslateInline(false);
             try {
                 $error = false;
@@ -80,7 +80,7 @@ class FireGento_MageSetup_Contacts_IndexController extends Mage_Contacts_IndexCo
                     throw new Exception();
                 }
                 $mailTemplate = Mage::getModel('core/email_template');
-                /* @var $mailTemplate Mage_Core_Model_Email_Template */
+                /* @var Mage_Core_Model_Email_Template $mailTemplate */
                 $mailTemplate->setDesignConfig(array('area' => 'frontend'))
                     ->setReplyTo($post['email'])
                     ->sendTransactional(

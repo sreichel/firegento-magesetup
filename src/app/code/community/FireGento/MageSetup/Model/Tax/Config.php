@@ -43,7 +43,7 @@ class FireGento_MageSetup_Model_Tax_Config extends Mage_Tax_Model_Config
         /** @var Mage_Adminhtml_Model_Session_Quote */
         $adminhtmlSession = Mage::getSingleton('adminhtml/session_quote');
 
-        /* @var $session Mage_Checkout_Model_Session */
+        /* @var Mage_Checkout_Model_Session $session */
         $session = Mage::getSingleton('checkout/session');
 
         if (Mage::app()->getStore()->getId() == Mage_Core_Model_App::ADMIN_STORE_ID && $adminhtmlSession->getQuote()) {
@@ -73,7 +73,7 @@ class FireGento_MageSetup_Model_Tax_Config extends Mage_Tax_Model_Config
         // Fetch the tax rates from the quote items
         $taxClassSums = array();
         foreach ($quoteItems as $item) {
-            /** @var $item Mage_Sales_Model_Quote_Item */
+            /** @var Mage_Sales_Model_Quote_Item $item */
             if ($item->getParentItem()) {
                 $parentProduct = $item->getParentItem()->getProduct();
                 if ($parentProduct->getTypeId() == 'bundle' && $parentProduct->getPriceType() != 0) {

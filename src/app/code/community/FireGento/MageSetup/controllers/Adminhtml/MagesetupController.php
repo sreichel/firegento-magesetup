@@ -61,7 +61,7 @@ class FireGento_MageSetup_Adminhtml_MagesetupController extends Mage_Adminhtml_C
             $params = $this->_getParams();
 
             try {
-                /* @var $setupModel FireGento_MageSetup_Model_Setup */
+                /* @var FireGento_MageSetup_Model_Setup $setupModel */
                 $setupModel = Mage::getModel('magesetup/setup');
                 $setupModel->setup($params, true);
             } catch (Exception $e) {
@@ -78,7 +78,7 @@ class FireGento_MageSetup_Adminhtml_MagesetupController extends Mage_Adminhtml_C
      */
     public function skipAction()
     {
-        /* @var $helper FireGento_MageSetup_Helper_Data */
+        /* @var FireGento_MageSetup_Helper_Data $helper */
         $helper = Mage::helper('magesetup');
         $helper->setIsInitialized();
         $this->_redirectReferer();

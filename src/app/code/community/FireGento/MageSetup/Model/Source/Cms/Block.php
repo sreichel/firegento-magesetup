@@ -41,7 +41,7 @@ class FireGento_MageSetup_Model_Source_Cms_Block extends Mage_Eav_Model_Entity_A
     public function toOptionArray()
     {
         if (!$this->_options) {
-            /** @var $blocks Mage_Cms_Model_Resource_Block_Collection */
+            /** @var Mage_Cms_Model_Resource_Block_Collection $blocks */
             $blocks = Mage::getModel('cms/block')->getCollection()
                 ->addFieldToFilter('is_active', 1)
                 ->setOrder('identifier', 'ASC');
@@ -49,7 +49,7 @@ class FireGento_MageSetup_Model_Source_Cms_Block extends Mage_Eav_Model_Entity_A
             $options = array();
 
             foreach ($blocks as $block) {
-                /** @var $block Mage_Cms_Model_Block */
+                /** @var Mage_Cms_Model_Block $block */
                 $options[$block->getIdentifier()] = $block->getIdentifier();
             }
 

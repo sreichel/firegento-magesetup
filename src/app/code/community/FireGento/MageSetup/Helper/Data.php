@@ -41,7 +41,7 @@ class FireGento_MageSetup_Helper_Data extends Mage_Core_Helper_Abstract
     public function getShippingCostUrl()
     {
         if (static::$_shippingCostUrl === null) {
-            /** @var $cmsPage Mage_Cms_Model_Page */
+            /** @var Mage_Cms_Model_Page $cmsPage */
             $cmsPage = Mage::getModel('cms/page')
                 ->setStoreId(Mage::app()->getStore()->getId())
                 ->load(Mage::getStoreConfig('catalog/price/cms_page_shipping'));

@@ -42,7 +42,7 @@ class FireGento_MageSetup_Model_Source_Tax_CustomerTaxClass extends Mage_Tax_Mod
                 continue;
             }
 
-            /* @var $customerGroupCollection Mage_Customer_Model_Resource_Group_Collection */
+            /* @var Mage_Customer_Model_Resource_Group_Collection $customerGroupCollection */
             $customerGroupCollection = Mage::getModel('customer/group')
                 ->getCollection()
                 ->addFieldToFilter('tax_class_id', $option['value'])

@@ -329,7 +329,7 @@ class FireGento_MageSetup_Model_Setup_Cms extends FireGento_MageSetup_Model_Setu
      */
     protected function _updateFooterLinksBlock($blockData, $storeId = null)
     {
-        /** @var $block Mage_Cms_Model_Block */
+        /** @var Mage_Cms_Model_Block $block */
         if (is_null($storeId)) {
             $block = $this->_getDefaultBlock('footer_links');
         } else {
@@ -341,7 +341,7 @@ class FireGento_MageSetup_Model_Setup_Cms extends FireGento_MageSetup_Model_Setu
         }
 
         if ($block->getId()) {
-            /** @var $backupBlock Mage_Cms_Model_Block */
+            /** @var Mage_Cms_Model_Block $backupBlock */
             $backupBlock = Mage::getModel('cms/block')->load('footer_links_backup');
             if (!$backupBlock->getId()) {
                 // create copy of original block
@@ -351,7 +351,7 @@ class FireGento_MageSetup_Model_Setup_Cms extends FireGento_MageSetup_Model_Setu
 
                 $block->setData($data)->save();
 
-                /** @var $block Mage_Cms_Model_Block */
+                /** @var Mage_Cms_Model_Block $block */
                 $block = Mage::getModel('cms/block');
             }
         }

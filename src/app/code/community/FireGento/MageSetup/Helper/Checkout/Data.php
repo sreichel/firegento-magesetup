@@ -91,7 +91,7 @@ class FireGento_MageSetup_Helper_Checkout_Data extends Mage_Checkout_Helper_Data
      */
     protected function _addRevocationProductTypesFilter($agreements)
     {
-        /** @var $productCollection Mage_Catalog_Model_Resource_Product_Collection */
+        /** @var Mage_Catalog_Model_Resource_Product_Collection $productCollection */
         $productCollection = Mage::getResourceModel('catalog/product_collection')
             ->addAttributeToFilter('entity_id', array('in' => $this->_getProductIdsInQuote()))
             ->joinAttribute('revocation_product_type', 'catalog_product/revocation_product_type', 'entity_id', null, 'left')

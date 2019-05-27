@@ -39,14 +39,14 @@ class FireGento_MageSetup_Model_Newsletter_Observer
     public function saveSubscriberStatusHistory(Varien_Event_Observer $observer)
     {
         try {
-            /* @var $subscriber Mage_Newsletter_Model_Subscriber */
+            /* @var Mage_Newsletter_Model_Subscriber $subscriber */
             $subscriber = $observer->getEvent()->getSubscriber();
 
             if (
                 $subscriber->dataHasChangedFor('subscriber_status') ||
                 $subscriber->dataHasChangedFor('subscriber_email')
             ) {
-                /* @var $status FireGento_MageSetup_Model_Newsletter_Subscriber_Status */
+                /* @var FireGento_MageSetup_Model_Newsletter_Subscriber_Status $status */
                 $status = Mage::getModel('magesetup/newsletter_subscriber_status');
                 $status->setData('subscriber', $subscriber->getId());
                 $status->setData('status', $subscriber->getData('subscriber_status'));

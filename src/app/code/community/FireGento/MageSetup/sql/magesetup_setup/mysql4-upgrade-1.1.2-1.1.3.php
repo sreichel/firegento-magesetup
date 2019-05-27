@@ -26,7 +26,7 @@
  * @author   FireGento Team <team@firegento.com>
  */
 
-/* @var $this Mage_Eav_Model_Entity_Setup */
+/* @var Mage_Eav_Model_Entity_Setup $this */
 $installer = $this;
 $installer->startSetup();
 

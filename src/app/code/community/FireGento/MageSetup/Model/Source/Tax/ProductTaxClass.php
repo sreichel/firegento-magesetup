@@ -42,7 +42,7 @@ class FireGento_MageSetup_Model_Source_Tax_ProductTaxClass extends Mage_Tax_Mode
                 continue;
             }
 
-            /* @var $productCollection Mage_Catalog_Model_Resource_Product_Collection */
+            /* @var Mage_Catalog_Model_Resource_Product_Collection $productCollection */
             $productCollection = Mage::getModel('catalog/product')
                 ->getCollection()
                 ->addAttributeToFilter('tax_class_id', $option['value'])

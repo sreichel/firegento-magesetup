@@ -41,7 +41,7 @@ class FireGento_MageSetup_Model_Source_Cms_Page extends Mage_Eav_Model_Entity_At
     public function toOptionArray()
     {
         if (!$this->_options) {
-            /** @var $pages Mage_Cms_Model_Resource_Page_Collection */
+            /** @var Mage_Cms_Model_Resource_Page_Collection $pages */
             $pages = Mage::getModel('cms/page')->getCollection()
                 ->addFieldToFilter('is_active', 1)
                 ->setOrder('identifier', 'ASC');
@@ -49,7 +49,7 @@ class FireGento_MageSetup_Model_Source_Cms_Page extends Mage_Eav_Model_Entity_At
             $options = array();
 
             foreach ($pages as $page) {
-                /** @var $page Mage_Cms_Model_Page */
+                /** @var Mage_Cms_Model_Page $page */
                 $options[$page->getIdentifier()] = $page->getIdentifier();
             }
 

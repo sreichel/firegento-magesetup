@@ -26,7 +26,7 @@
  * @author   FireGento Team <team@firegento.com>
  */
 
-/* @var $this Mage_Eav_Model_Entity_Setup */
+/* @var Mage_Eav_Model_Entity_Setup $this */
 $installer = $this;
 
 $data = array(
@@ -142,7 +142,7 @@ $data = array(
     'VT' => 'Viterbo',
 );
 
-/* @var $region Mage_Directory_Model_Region */
+/* @var Mage_Directory_Model_Region $region */
 $region = Mage::getModel('directory/region');
 
 $regionTable = $installer->getTable('directory/country_region');

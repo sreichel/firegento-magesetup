@@ -114,7 +114,7 @@ class FireGento_MageSetup_Model_Observer
      */
     public function autogenerateMetaInformation(Varien_Event_Observer $observer)
     {
-        /* @var $product Mage_Catalog_Model_Product */
+        /* @var Mage_Catalog_Model_Product $product */
         $product = $observer->getEvent()->getProduct();
 
         if ($product->getData('meta_autogenerate') == 1) {
@@ -189,7 +189,7 @@ class FireGento_MageSetup_Model_Observer
                 return;
             }
 
-            /* @var $category Mage_Catalog_Model_Category */
+            /* @var Mage_Catalog_Model_Category $category */
             $category = Mage::getModel('catalog/category')->setStoreId($storeid)->load($categoryId);
 
             $path = $category->getPath();
@@ -208,7 +208,7 @@ class FireGento_MageSetup_Model_Observer
                         if (!array_key_exists($pathId, $return['assigned'])
                             && !array_key_exists($pathId, $return['path'])
                         ) {
-                            /* @var $pathCategory Mage_Catalog_Model_Category */
+                            /* @var Mage_Catalog_Model_Category $pathCategory */
                             $pathCategory = Mage::getModel('catalog/category')->setStoreId($storeid)->load($pathId);
                             $return['path'][$pathId] = $pathCategory->getName();
                         }

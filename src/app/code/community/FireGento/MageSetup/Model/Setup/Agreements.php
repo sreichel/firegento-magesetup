@@ -114,7 +114,7 @@ class FireGento_MageSetup_Model_Setup_Agreements extends FireGento_MageSetup_Mod
             'stores'                  => $storeId ? $storeId : 0,
         );
 
-        /* @var $agreement Mage_Checkout_Model_Agreement */
+        /* @var Mage_Checkout_Model_Agreement $agreement */
         $agreement = Mage::getModel('checkout/agreement')->setStoreId($storeId)->load($agreementData['name'], 'name');
         if (is_array($agreement->getStores()) && !in_array(intval($storeId), $agreement->getStores())) {
             $agreement = Mage::getModel('checkout/agreement');

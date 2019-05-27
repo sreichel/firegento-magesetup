@@ -264,7 +264,7 @@ class FireGento_MageSetup_Model_Setup_Tax extends FireGento_MageSetup_Model_Setu
             ->addAttributeToFilter('tax_class_id', intval($source));
 
         foreach ($productCollection as $product) {
-            /** @var $product Mage_Catalog_Model_Product */
+            /** @var Mage_Catalog_Model_Product $product */
             $product->setTaxClassId(intval($target));
             $product->getResource()->saveAttribute($product, 'tax_class_id');
         }
@@ -287,7 +287,7 @@ class FireGento_MageSetup_Model_Setup_Tax extends FireGento_MageSetup_Model_Setu
             ->addFieldToFilter('tax_class_id', intval($source));
 
         foreach ($customerGroupCollection as $customerGroup) {
-            /** @var $customerGroup Mage_Customer_Model_Group */
+            /** @var Mage_Customer_Model_Group $customerGroup */
             $customerGroup->setTaxClassId(intval($target));
             $customerGroup->save();
         }
