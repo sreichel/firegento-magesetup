@@ -37,6 +37,7 @@ class FireGento_MageSetup_Helper_Data extends Mage_Core_Helper_Abstract
      * Generate URL to configured shipping cost page, or '' if none.
      *
      * @return string Shipping cost url
+     * @throws Mage_Core_Model_Store_Exception
      */
     public function getShippingCostUrl()
     {

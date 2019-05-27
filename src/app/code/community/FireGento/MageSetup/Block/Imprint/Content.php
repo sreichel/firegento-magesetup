@@ -52,6 +52,7 @@ class FireGento_MageSetup_Block_Imprint_Content extends Mage_Core_Block_Template
      * information in order comments.
      *
      * @return int|null Store Id
+     * @throws Exception
      */
     protected function getStoreId()
     {

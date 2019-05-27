@@ -32,6 +32,7 @@ class FireGento_MageSetup_Block_Imprint_Field extends FireGento_MageSetup_Block_
      * Render imprint field
      *
      * @return string Field value
+     * @throws Exception
      */
     protected function _toHtml()
     {

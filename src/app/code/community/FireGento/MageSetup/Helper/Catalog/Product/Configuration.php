@@ -46,8 +46,9 @@ class FireGento_MageSetup_Helper_Catalog_Product_Configuration extends Mage_Cata
     /**
      * Merge Attributes
      *
-     * @param  Mage_Catalog_Model_Product_Configuration_Item_Interface $item Quote item
+     * @param Mage_Catalog_Model_Product_Configuration_Item_Interface $item Quote item
      * @return array Custom Options
+     * @throws Mage_Core_Model_Store_Exception
      */
     public function getCustomOptions(Mage_Catalog_Model_Product_Configuration_Item_Interface $item)
     {
@@ -72,8 +73,9 @@ class FireGento_MageSetup_Helper_Catalog_Product_Configuration extends Mage_Cata
     /**
      * Retrieve the product attributes
      *
-     * @param  Mage_Catalog_Model_Product_Configuration_Item_Interface $item Quote item
+     * @param Mage_Catalog_Model_Product_Configuration_Item_Interface $item Quote item
      * @return array Attributes
+     * @throws Mage_Core_Model_Store_Exception
      */
     protected function _getAttributes($item)
     {
@@ -94,8 +96,9 @@ class FireGento_MageSetup_Helper_Catalog_Product_Configuration extends Mage_Cata
     /**
      * Retrieve the attributes which are visible on the checkout page
      *
-     * @param  Mage_Catalog_Model_Product $product Product Model
+     * @param Mage_Catalog_Model_Product $product Product Model
      * @return array Addition data as array
+     * @throws Mage_Core_Model_Store_Exception
      */
     protected function _getAdditionalData(Mage_Catalog_Model_Product $product)
     {

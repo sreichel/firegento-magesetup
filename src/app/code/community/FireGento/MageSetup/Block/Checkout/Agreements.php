@@ -32,6 +32,7 @@ class FireGento_MageSetup_Block_Checkout_Agreements extends Mage_Checkout_Block_
      * Filter by "Agreement Type"
      *
      * @return Mage_Checkout_Model_Resource_Agreement_Collection Agreements|array
+     * @throws Mage_Core_Exception
      */
     public function getAgreements()
     {
@@ -68,6 +69,7 @@ class FireGento_MageSetup_Block_Checkout_Agreements extends Mage_Checkout_Block_
      * Display only those checkout agreements which match the product in cart
      *
      * @param Mage_Checkout_Model_Resource_Agreement_Collection $agreements
+     * @throws Mage_Core_Exception
      */
     protected function _addRevocationProductTypesFilter($agreements)
     {

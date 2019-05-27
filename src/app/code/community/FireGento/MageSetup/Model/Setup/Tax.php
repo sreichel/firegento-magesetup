@@ -51,6 +51,7 @@ class FireGento_MageSetup_Model_Setup_Tax extends FireGento_MageSetup_Model_Setu
      * Setup Tax setting
      *
      * @return void
+     * @throws Exception
      */
     public function setup()
     {
@@ -252,6 +253,7 @@ class FireGento_MageSetup_Model_Setup_Tax extends FireGento_MageSetup_Model_Setu
      *
      * @param int $source source tax class id
      * @param int $target target tax class id
+     * @throws Exception
      */
     public function updateProductTaxClasses($source, $target)
     {
@@ -275,6 +277,7 @@ class FireGento_MageSetup_Model_Setup_Tax extends FireGento_MageSetup_Model_Setu
      *
      * @param int $source source tax class id
      * @param int $target target tax class id
+     * @throws Exception
      */
     public function updateCustomerTaxClasses($source, $target)
     {

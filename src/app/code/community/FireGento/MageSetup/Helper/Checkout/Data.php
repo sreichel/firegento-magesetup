@@ -40,7 +40,10 @@ class FireGento_MageSetup_Helper_Checkout_Data extends Mage_Checkout_Helper_Data
      * Get all required agreement ids
      *
      * @return array Agreement Ids
-     **/
+     *
+     * @throws Mage_Core_Model_Store_Exception
+     * @throws Mage_Core_Exception
+     */
     public function getRequiredAgreementIds()
     {
         if (is_null($this->_agreements)) {
@@ -88,6 +91,7 @@ class FireGento_MageSetup_Helper_Checkout_Data extends Mage_Checkout_Helper_Data
      * Display only those checkout agreements which match the product in cart
      *
      * @param Mage_Checkout_Model_Resource_Agreement_Collection $agreements
+     * @throws Mage_Core_Exception
      */
     protected function _addRevocationProductTypesFilter($agreements)
     {

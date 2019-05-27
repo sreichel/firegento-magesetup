@@ -32,9 +32,10 @@ class FireGento_MageSetup_Model_Setup extends Mage_Core_Model_Abstract
      * Setup MageSetup as if a user sends the adminhtml form
      * See method _getDefaultParams for possible params
      *
-     * @param  array $params Setup params
-     * @param  bool  $notify Flag if admin notifications should be added
+     * @param array $params Setup params
+     * @param bool $notify Flag if admin notifications should be added
      * @return FireGento_MageSetup_Model_Setup Setup Model
+     * @throws Mage_Core_Exception
      */
     public function setup($params = array(), $notify = false)
     {

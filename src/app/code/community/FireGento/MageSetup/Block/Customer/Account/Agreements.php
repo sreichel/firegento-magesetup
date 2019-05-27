@@ -32,6 +32,7 @@ class FireGento_MageSetup_Block_Customer_Account_Agreements extends Mage_Checkou
      * Filter by "Agreement Type"
      *
      * @return Mage_Checkout_Model_Resource_Agreement_Collection Agreements
+     * @throws Mage_Core_Model_Store_Exception
      */
     public function getAgreements()
     {

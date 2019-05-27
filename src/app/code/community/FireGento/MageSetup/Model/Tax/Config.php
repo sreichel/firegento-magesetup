@@ -35,8 +35,9 @@ class FireGento_MageSetup_Model_Tax_Config extends Mage_Tax_Model_Config
      * Get tax class id specified for shipping tax estimation based on highest product
      * tax rate of the products in the current customer quote.
      *
-     * @param  Mage_Core_Model_Store $store Store Model
+     * @param Mage_Core_Model_Store $store Store Model
      * @return int Shipping tax class id
+     * @throws Mage_Core_Model_Store_Exception
      */
     public function getShippingTaxClass($store = null)
     {

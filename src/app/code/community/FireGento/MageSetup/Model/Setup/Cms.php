@@ -37,6 +37,7 @@ class FireGento_MageSetup_Model_Setup_Cms extends FireGento_MageSetup_Model_Setu
      * Setup Pages, Blocks and especially Footer Block
      *
      * @param array $locale Locale options
+     * @throws Zend_Validate_Exception
      */
     public function setup($locale = array('default' => 'de_DE'))
     {
@@ -147,11 +148,12 @@ class FireGento_MageSetup_Model_Setup_Cms extends FireGento_MageSetup_Model_Setu
     /**
      * Collect data and create CMS page
      *
-     * @param  array    $pageData Cms page data
-     * @param  string   $locale   Locale
-     * @param  boolean  $override Override email template if set
-     * @param  int|null $storeId  Store ID
+     * @param array $pageData Cms page data
+     * @param string $locale Locale
+     * @param boolean $override Override email template if set
+     * @param int|null $storeId Store ID
      * @return void
+     * @throws Zend_Validate_Exception
      */
     protected function _createCmsPage($pageData, $locale, $override = true, $storeId = null)
     {
@@ -253,11 +255,12 @@ class FireGento_MageSetup_Model_Setup_Cms extends FireGento_MageSetup_Model_Setu
     /**
      * Collect data and create CMS block
      *
-     * @param  array    $blockData Cms block data
-     * @param  string   $locale    Locale
-     * @param  boolean  $override  Override email template if set
-     * @param  int|null $storeId   Store ID
+     * @param array $blockData Cms block data
+     * @param string $locale Locale
+     * @param boolean $override Override email template if set
+     * @param int|null $storeId Store ID
      * @return void
+     * @throws Zend_Validate_Exception
      */
     protected function _createCmsBlock($blockData, $locale, $override = true, $storeId = null)
     {
@@ -324,8 +327,9 @@ class FireGento_MageSetup_Model_Setup_Cms extends FireGento_MageSetup_Model_Setu
     /**
      * Update footer_links cms block
      *
-     * @param array    $blockData Cms block data
-     * @param int|null $storeId   Store ID
+     * @param array $blockData Cms block data
+     * @param int|null $storeId Store ID
+     * @throws Exception
      */
     protected function _updateFooterLinksBlock($blockData, $storeId = null)
     {

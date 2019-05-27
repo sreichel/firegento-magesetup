@@ -67,8 +67,9 @@ class FireGento_MageSetup_Model_Observer
      *
      * Event: <core_block_abstract_to_html_before>
      *
-     * @param  Varien_Event_Observer $observer Observer
+     * @param Varien_Event_Observer $observer Observer
      * @return FireGento_MageSetup_Model_Observer Observer
+     * @throws Exception
      */
     public function filterAgreements(Varien_Event_Observer $observer)
     {
@@ -109,8 +110,9 @@ class FireGento_MageSetup_Model_Observer
      * Auto-Generates the meta information of a product.
      * Event: <catalog_product_save_before>
      *
-     * @param  Varien_Event_Observer $observer Observer
+     * @param Varien_Event_Observer $observer Observer
      * @return FireGento_MageSetup_Model_Observer Observer
+     * @throws Mage_Core_Model_Store_Exception
      */
     public function autogenerateMetaInformation(Varien_Event_Observer $observer)
     {
@@ -153,8 +155,9 @@ class FireGento_MageSetup_Model_Observer
     /**
      * Get the categories of the current product
      *
-     * @param  Mage_Catalog_Model_Product $product Product
+     * @param Mage_Catalog_Model_Product $product Product
      * @return array Categories
+     * @throws Mage_Core_Model_Store_Exception
      */
     protected function _getCategoryKeywords($product, $storeid = 0)
     {
@@ -169,8 +172,9 @@ class FireGento_MageSetup_Model_Observer
      * Fetches all category names via category path; adds first the assigned
      * categories and second all categories via path.
      *
-     * @param  array $categories Category Ids
+     * @param array $categories Category Ids
      * @return array Categories
+     * @throws Mage_Core_Model_Store_Exception
      */
     protected function _fetchCategoryNames($categories, $storeid=0)
     {
@@ -316,6 +320,7 @@ class FireGento_MageSetup_Model_Observer
      * Get required agreements on custom registration
      *
      * @return array Customer agreement ids
+     * @throws Mage_Core_Model_Store_Exception
      */
     protected function _getCustomerCreateAgreements()
     {

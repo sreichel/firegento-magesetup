@@ -58,6 +58,7 @@ class FireGento_MageSetup_Block_Adminhtml_Newsletter_Subscriber_Status_Grid exte
      * Prepares the grid columns
      *
      * @return FireGento_MageSetup_Block_Adminhtml_Newsletter_Subscriber_Status_Grid Grid
+     * @throws Exception
      */
     protected function _prepareColumns()
     {

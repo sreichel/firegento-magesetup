@@ -40,6 +40,7 @@ class FireGento_MageSetup_Model_Config extends Varien_Simplexml_Config
      * Sets cache ID and cache tags and loads configuration
      *
      * @param string|Varien_Simplexml_Element $sourceData XML Source Data
+     * @throws Zend_Validate_Exception
      */
     public function __construct($sourceData = null)
     {
@@ -80,6 +81,7 @@ class FireGento_MageSetup_Model_Config extends Varien_Simplexml_Config
      * Merge default config with config from additional xml files
      *
      * @return FireGento_MageSetup_Model_Config Config Model
+     * @throws Zend_Validate_Exception
      */
     protected function _loadConfig()
     {
@@ -120,8 +122,9 @@ class FireGento_MageSetup_Model_Config extends Varien_Simplexml_Config
     /**
      * Add a config file to the given merge config
      *
-     * @param string                      $fileName    File to load
+     * @param string $fileName File to load
      * @param Mage_Core_Model_Config_Base $mergeConfig Global config for merging
+     * @throws Zend_Validate_Exception
      */
     protected function _addConfigFile($fileName, $mergeConfig, $overwrite = true)
     {

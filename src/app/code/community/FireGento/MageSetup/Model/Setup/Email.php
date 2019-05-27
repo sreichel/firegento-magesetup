@@ -36,8 +36,9 @@ class FireGento_MageSetup_Model_Setup_Email extends FireGento_MageSetup_Model_Se
     /**
      * Setup Transaction Emails
      *
-     * @param array $locale    Locale options
-     * @param bool  $overwrite Flag if locale options should override existing templates
+     * @param array $locale Locale options
+     * @param bool $overwrite Flag if locale options should override existing templates
+     * @throws Exception
      */
     public function setup($locale = array('default' => 'de_DE'), $overwrite = false)
     {
@@ -83,11 +84,12 @@ class FireGento_MageSetup_Model_Setup_Email extends FireGento_MageSetup_Model_Se
     /**
      * Create transactional email template
      *
-     * @param  array    $emailData Template data
-     * @param  string   $locale    Locale
-     * @param  boolean  $override  Override email template if set
-     * @param  int|null $storeId   Store ID
+     * @param array $emailData Template data
+     * @param string $locale Locale
+     * @param boolean $override Override email template if set
+     * @param int|null $storeId Store ID
      * @return void
+     * @throws Exception
      */
     protected function _createEmail($emailData, $locale, $override = true, $storeId = null)
     {
@@ -142,8 +144,9 @@ class FireGento_MageSetup_Model_Setup_Email extends FireGento_MageSetup_Model_Se
     /**
      * Retrieve email template path for given locale
      *
-     * @param  string $locale Locale
+     * @param string $locale Locale
      * @return string Locale Template Path
+     * @throws Mage_Core_Exception
      */
     protected function _getLocaleEmailPath($locale)
     {

@@ -101,6 +101,7 @@ class FireGento_MageSetup_Block_Adminhtml_Magesetup extends Mage_Adminhtml_Block
      * Retrieve all locales where the directory email/template exists
      *
      * @return array Locale options for email templates
+     * @throws Zend_Validate_Exception
      */
     public function getLocaleOptionsForEmailTemplates()
     {
@@ -120,6 +121,7 @@ class FireGento_MageSetup_Block_Adminhtml_Magesetup extends Mage_Adminhtml_Block
      * Retrieve all locales where the directory email/template exists
      *
      * @return array Locale options for CMS content
+     * @throws Zend_Validate_Exception
      */
     public function getLocaleOptionsForCmsContent()
     {
@@ -169,6 +171,7 @@ class FireGento_MageSetup_Block_Adminhtml_Magesetup extends Mage_Adminhtml_Block
      * Retrieve the new product tax classes as JSON
      *
      * @return string JSON with Product Tax Classes
+     * @throws Zend_Validate_Exception
      */
     public function getNewProductTaxClassesJson()
     {
@@ -210,6 +213,7 @@ class FireGento_MageSetup_Block_Adminhtml_Magesetup extends Mage_Adminhtml_Block
      * Retrieve the new customer tax classes as JSON
      *
      * @return string JSON with Customer Tax Classes
+     * @throws Zend_Validate_Exception
      */
     public function getNewCustomerTaxClassesJson()
     {

@@ -32,6 +32,7 @@ class FireGento_MageSetup_Model_Setup_Agreements extends FireGento_MageSetup_Mod
      * Setup Checkout Agreements
      *
      * @param array $locale Locale options
+     * @throws Zend_Validate_Exception
      */
     public function setup($locale = array('default' => 'de_DE'))
     {
@@ -65,11 +66,12 @@ class FireGento_MageSetup_Model_Setup_Agreements extends FireGento_MageSetup_Mod
     /**
      * Collect data and create Agreement
      *
-     * @param  array    $agreementData Cms page data
-     * @param  string   $locale        Locale
-     * @param  boolean  $override      Override cms page if it exists
-     * @param  int|null $storeId       Store Id
+     * @param array $agreementData Cms page data
+     * @param string $locale Locale
+     * @param boolean $override Override cms page if it exists
+     * @param int|null $storeId Store Id
      * @return void
+     * @throws Zend_Validate_Exception
      */
     protected function _createAgreement($agreementData, $locale, $override = true, $storeId = null)
     {

@@ -59,6 +59,7 @@ class FireGento_MageSetup_Block_Catalog_Product_Price extends FireGento_MageSetu
      * Add content of template block below price html if defined in config
      *
      * @return string Price HTML
+     * @throws Mage_Core_Model_Store_Exception
      */
     public function _toHtml()
     {
@@ -130,6 +131,7 @@ class FireGento_MageSetup_Block_Catalog_Product_Price extends FireGento_MageSetu
      * Read tax rate from current product.
      *
      * @return string Tax Rate
+     * @throws Mage_Core_Model_Store_Exception
      */
     public function getTaxRate()
     {
@@ -145,6 +147,7 @@ class FireGento_MageSetup_Block_Catalog_Product_Price extends FireGento_MageSetu
      * Retrieves formatted string of tax rate for user output
      *
      * @return string Formatted Tax Rate for the given locale
+     * @throws Mage_Core_Model_Store_Exception
      */
     public function getFormattedTaxRate()
     {
@@ -213,8 +216,9 @@ class FireGento_MageSetup_Block_Catalog_Product_Price extends FireGento_MageSetu
     /**
      * Gets tax percents for current product
      *
-     * @param  Mage_Catalog_Model_Product $product Product Model
+     * @param Mage_Catalog_Model_Product $product Product Model
      * @return string Tax Rate
+     * @throws Mage_Core_Model_Store_Exception
      */
     protected function _loadTaxCalculationRate(Mage_Catalog_Model_Product $product)
     {
