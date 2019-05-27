@@ -54,48 +54,48 @@ if (version_compare(Mage::getVersion(), '1.6', '<')) {
             'id',
             Varien_Db_Ddl_Table::TYPE_INTEGER,
             null,
-            array(
+            [
             'unsigned' => true,
             'nullable' => false,
             'primary'  => true,
             'identity' => true,
-            ),
+            ],
             'ID'
         )
         ->addColumn(
             'subscriber',
             Varien_Db_Ddl_Table::TYPE_INTEGER,
             null,
-            array(
+            [
             'unsigned'  => true,
             'nullable'  => false,
-            ),
+            ],
             'Subscriber Id'
         )
         ->addColumn(
             'status',
             Varien_Db_Ddl_Table::TYPE_INTEGER,
             null,
-            array(
+            [
             'nullable'  => false,
             'default'   => '0',
-            ),
+            ],
             'Subscriber Status'
         )
         ->addColumn(
             'email',
             Varien_Db_Ddl_Table::TYPE_TEXT,
             null,
-            array(
-            ),
+            [
+            ],
             'Subscriber Status'
         )
         ->addColumn(
             'created_at',
             Varien_Db_Ddl_Table::TYPE_TIMESTAMP,
             null,
-            array(
-            ),
+            [
+            ],
             'Changed at'
         )
         ->setComment('Newsletter Subscriber Status Table');

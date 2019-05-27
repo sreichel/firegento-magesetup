@@ -32,10 +32,10 @@ class FireGento_MageSetup_Block_Catalog_Product_Price extends FireGento_MageSetu
     /**
      * @var array Path to common tier price template
      */
-    protected $_tierPriceDefaultTemplates = array(
+    protected $_tierPriceDefaultTemplates = [
         'catalog/product/view/tierprices.phtml',
         'dermodpro/bcp/catalog/product/view/tierprices.phtml'
-    );
+    ];
 
     /**
      * Add the tierprice default templates
@@ -89,10 +89,10 @@ class FireGento_MageSetup_Block_Catalog_Product_Price extends FireGento_MageSetu
 
             Mage::dispatchEvent(
                 'magesetup_after_product_price',
-                array(
+                [
                     'html_obj' => $htmlObject,
                     'block' => $this,
-                )
+                ]
             );
 
             $html = $htmlObject->getPrefix();
@@ -119,10 +119,10 @@ class FireGento_MageSetup_Block_Catalog_Product_Price extends FireGento_MageSetu
         if (strpos($pathInfo, 'catalog/category/view') !== false
             || strpos($pathInfo, 'catalogsearch/result') !== false
         ) {
-            $block = $this->getLayout()->createBlock('core/template', 'magesetup.deliverytime', array(
+            $block = $this->getLayout()->createBlock('core/template', 'magesetup.deliverytime', [
                 'product' => $this->getProduct(),
                 'template' => 'magesetup/delivery_time.phtml'
-                ));
+            ]);
             $htmlObject->setSuffix($block->toHtml());
         }
     }
@@ -159,7 +159,7 @@ class FireGento_MageSetup_Block_Catalog_Product_Price extends FireGento_MageSetu
         }
 
         $locale = Mage::app()->getLocale()->getLocaleCode();
-        $taxRate = Zend_Locale_Format::toFloat($this->getTaxRate(), array('locale' => $locale));
+        $taxRate = Zend_Locale_Format::toFloat($this->getTaxRate(), ['locale' => $locale]);
 
         return $this->__('%s%%', $taxRate);
     }
@@ -205,7 +205,7 @@ class FireGento_MageSetup_Block_Catalog_Product_Price extends FireGento_MageSetu
     public function isShowShippingLink()
     {
         $productTypeId = $this->getProduct()->getTypeId();
-        $ignoreTypeIds = array('virtual', 'downloadable');
+        $ignoreTypeIds = ['virtual', 'downloadable'];
         if (in_array($productTypeId, $ignoreTypeIds)) {
             return false;
         }

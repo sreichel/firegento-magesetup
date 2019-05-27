@@ -38,13 +38,13 @@ if (version_compare(Mage::getVersion(), '1.6', '<')) {
     $installer->getConnection()->addColumn(
         $installer->getTable('checkout/agreement'),
         'position',
-        array(
+        [
             'type'      => Varien_Db_Ddl_Table::TYPE_SMALLINT,
             'length'    => 2,
             'nullable'  => false,
             'default'   => 0,
             'comment'   => 'Agreement Position'
-        )
+        ]
     );
 }
 

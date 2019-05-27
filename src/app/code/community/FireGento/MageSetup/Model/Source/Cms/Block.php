@@ -46,7 +46,7 @@ class FireGento_MageSetup_Model_Source_Cms_Block extends Mage_Eav_Model_Entity_A
                 ->addFieldToFilter('is_active', 1)
                 ->setOrder('identifier', 'ASC');
 
-            $options = array();
+            $options = [];
 
             foreach ($blocks as $block) {
                 /** @var Mage_Cms_Model_Block $block */
@@ -54,14 +54,14 @@ class FireGento_MageSetup_Model_Source_Cms_Block extends Mage_Eav_Model_Entity_A
             }
 
             foreach ($options as $identifier) {
-                $this->_options[] = array(
+                $this->_options[] = [
                     'value' => $identifier,
                     'label' => $identifier,
-                );
+                ];
             }
         }
 
-        array_unshift($this->_options, array('value' => '', 'label' => Mage::helper('magesetup')->__('No Block')));
+        array_unshift($this->_options, ['value' => '', 'label' => Mage::helper('magesetup')->__('No Block')]);
 
         return $this->_options;
     }

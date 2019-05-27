@@ -33,7 +33,7 @@ $installer->startSetup();
 $installer->addAttribute(
     'catalog_product',
     'delivery_time',
-    array(
+    [
         'label'                      => 'Lieferzeit',
         'input'                      => 'text',
         'required'                   => 0,
@@ -49,7 +49,7 @@ $installer->addAttribute(
         'visible_in_advanced_search' => 1,
         'used_in_product_listing'    => 1,
         'is_html_allowed_on_front'   => 1,
-    )
+    ]
 );
 
 $installer->endSetup();

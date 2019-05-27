@@ -107,10 +107,10 @@ class FireGento_MageSetup_Test_Block_Imprint_Content extends EcomDev_PHPUnit_Tes
      */
     public function testGetEmailJs()
     {
-        $parts = array(
+        $parts = [
             'foo',
             'bar.com'
-        );
+        ];
 
         $expectedJs = <<<JS
 <script>function toRecipient(){var m = 'foo';m += '@';m += 'bar.com';location.href= "mailto:"+m;}</script>

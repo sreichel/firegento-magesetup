@@ -89,7 +89,7 @@ class FireGento_MageSetup_Block_Bundle_Catalog_Product_Price extends FireGento_M
         }
 
         $locale = Mage::app()->getLocale()->getLocaleCode();
-        $taxRate = Zend_Locale_Format::toFloat($this->getTaxRate(), array('locale' => $locale));
+        $taxRate = Zend_Locale_Format::toFloat($this->getTaxRate(), ['locale' => $locale]);
 
         return $this->__('%s%%', $taxRate);
     }
@@ -117,7 +117,7 @@ class FireGento_MageSetup_Block_Bundle_Catalog_Product_Price extends FireGento_M
     public function isShowShippingLink()
     {
         $productTypeId = $this->getProduct()->getTypeId();
-        $ignoreTypeIds = array('virtual', 'downloadable');
+        $ignoreTypeIds = ['virtual', 'downloadable'];
         if (in_array($productTypeId, $ignoreTypeIds)) {
             return false;
         }

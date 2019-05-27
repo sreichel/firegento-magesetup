@@ -38,17 +38,17 @@ if (version_compare($adminVersion, '1.6.1.1', '>')) {
     //---------------------------------------------------
     $table = $installer->getTable('admin/permission_block');
     if ($table) {
-        $blockNames = array(
+        $blockNames = [
             'magesetup/imprint_field',
             'magesetup/imprint_content'
-        );
+        ];
         foreach ($blockNames as $blockName) {
             $connection->insertOnDuplicate(
                 $table,
-                array(
+                [
                     'block_name' => $blockName,
                     'is_allowed' => 1,
-                )
+                ]
             );
         }
     }

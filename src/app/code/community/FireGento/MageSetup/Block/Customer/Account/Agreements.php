@@ -40,10 +40,10 @@ class FireGento_MageSetup_Block_Customer_Account_Agreements extends Mage_Checkou
             $agreements = Mage::getModel('checkout/agreement')->getCollection()
                 ->addStoreFilter(Mage::app()->getStore()->getId())
                 ->addFieldToFilter('is_active', 1)
-                ->addFieldToFilter('agreement_type', array('in' => array(
+                ->addFieldToFilter('agreement_type', ['in' => [
                     FireGento_MageSetup_Model_Source_AgreementType::AGREEMENT_TYPE_CUSTOMER,
                     FireGento_MageSetup_Model_Source_AgreementType::AGREEMENT_TYPE_BOTH,
-                )));
+                ]]);
 
             $this->setAgreements($agreements);
         }

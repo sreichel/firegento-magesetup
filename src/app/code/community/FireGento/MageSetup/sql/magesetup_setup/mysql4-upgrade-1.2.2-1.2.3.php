@@ -33,7 +33,7 @@ $installer->startSetup();
 $installer->addAttribute(
     'catalog_product',
     'meta_autogenerate',
-    array(
+    [
         'label' => 'Auto-Generate Meta-Information',
         'input' => 'select',
         'source' => 'eav/entity_attribute_source_boolean',
@@ -50,7 +50,7 @@ $installer->addAttribute(
         'visible_in_advanced_search' => false,
         'used_in_product_listing' => false,
         'is_html_allowed_on_front' => false,
-    )
+    ]
 );
 
 $installer->endSetup();

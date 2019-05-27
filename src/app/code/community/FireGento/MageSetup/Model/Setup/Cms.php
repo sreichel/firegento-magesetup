@@ -31,7 +31,7 @@ class FireGento_MageSetup_Model_Setup_Cms extends FireGento_MageSetup_Model_Setu
     /**
      * @var array
      */
-    protected $_footerLinks = array();
+    protected $_footerLinks = [];
 
     /**
      * Setup Pages, Blocks and especially Footer Block
@@ -39,7 +39,7 @@ class FireGento_MageSetup_Model_Setup_Cms extends FireGento_MageSetup_Model_Setu
      * @param array $locale Locale options
      * @throws Zend_Validate_Exception
      */
-    public function setup($locale = array('default' => 'de_DE'))
+    public function setup($locale = ['default' => 'de_DE'])
     {
         foreach ($locale as $storeId => $localeCode) {
             if (!$localeCode) {
@@ -139,7 +139,7 @@ class FireGento_MageSetup_Model_Setup_Cms extends FireGento_MageSetup_Model_Setu
             $storeId = 'default';
         }
         if (!isset($this->_footerLinks[$storeId])) {
-            return array();
+            return [];
         }
 
         return $this->_footerLinks[$storeId];
@@ -161,10 +161,10 @@ class FireGento_MageSetup_Model_Setup_Cms extends FireGento_MageSetup_Model_Setu
             return;
         }
 
-        $data = array(
+        $data = [
             'stores'    => $storeId ? $storeId : 0,
             'is_active' => 1,
-        );
+        ];
 
         $filename = Mage::getBaseDir('locale') . DS . $locale . DS . 'template';
         $validatorNot = new Zend_Validate_File_NotExists($filename);
@@ -196,10 +196,10 @@ class FireGento_MageSetup_Model_Setup_Cms extends FireGento_MageSetup_Model_Setu
         }
 
         if ($pageData['footerlink'] == 1) {
-            $this->_footerLinks[$storeId][] = array(
+            $this->_footerLinks[$storeId][] = [
                 'title'  => $data['title'],
                 'target' => $data['identifier'],
-            );
+            ];
         }
 
         if (isset($pageData['config_option'])) {
@@ -214,7 +214,7 @@ class FireGento_MageSetup_Model_Setup_Cms extends FireGento_MageSetup_Model_Setu
      * @param string $templateContent Template content extracted from file
      * @return array
      */
-    protected function _extractPageData($templateContent, $data = array())
+    protected function _extractPageData($templateContent, $data = [])
     {
         if (preg_match('/<!--@title\s*(.*?)\s*@-->/u', $templateContent, $matches)) {
             $data['title'] = $matches[1];
@@ -349,7 +349,7 @@ class FireGento_MageSetup_Model_Setup_Cms extends FireGento_MageSetup_Model_Setu
             $backupBlock = Mage::getModel('cms/block')->load('footer_links_backup');
             if (!$backupBlock->getId()) {
                 // create copy of original block
-                $data = array();
+                $data = [];
                 $data['block_id'] = $block->getId();
                 $data['identifier'] = 'footer_links_backup';
 
@@ -360,16 +360,16 @@ class FireGento_MageSetup_Model_Setup_Cms extends FireGento_MageSetup_Model_Setu
             }
         }
 
-        $data = array(
+        $data = [
             'title'      => 'Footer Links',
             'identifier' => 'footer_links',
             'content'    => $this->_createFooterLinksContent($storeId),
             'stores'     => $storeId ? $storeId : 0,
             'is_active'  => '1',
-        );
+        ];
 
         if ($storeId) {
-            $data['stores'] = array($storeId);
+            $data['stores'] = [$storeId];
         }
 
         $block->addData($data)->save();

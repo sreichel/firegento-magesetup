@@ -62,37 +62,37 @@ class FireGento_MageSetup_Block_Adminhtml_Newsletter_Subscriber_Status_Grid exte
      */
     protected function _prepareColumns()
     {
-        $this->addColumn('subscriber', array(
+        $this->addColumn('subscriber', [
             'header' => Mage::helper('newsletter')->__('ID'),
             'index'  => 'subscriber',
             'type'   => 'int',
             'width'  => '75px'
-        ));
+        ]);
 
-        $this->addColumn('email', array(
+        $this->addColumn('email', [
             'header' => Mage::helper('newsletter')->__('Email'),
             'index'  => 'email'
-        ));
+        ]);
 
-        $this->addColumn('status', array(
+        $this->addColumn('status', [
             'header'  => Mage::helper('newsletter')->__('Status'),
             'index'   => 'status',
             'width'   => '150px',
             'type'    => 'options',
-            'options' => array(
+            'options' => [
                 Mage_Newsletter_Model_Subscriber::STATUS_NOT_ACTIVE   => Mage::helper('newsletter')->__('Not Activated'),
                 Mage_Newsletter_Model_Subscriber::STATUS_SUBSCRIBED   => Mage::helper('newsletter')->__('Subscribed'),
                 Mage_Newsletter_Model_Subscriber::STATUS_UNSUBSCRIBED => Mage::helper('newsletter')->__('Unsubscribed'),
                 Mage_Newsletter_Model_Subscriber::STATUS_UNCONFIRMED  => Mage::helper('newsletter')->__('Unconfirmed'),
-            )
-        ));
+            ]
+        ]);
 
-        $this->addColumn('created_at', array(
+        $this->addColumn('created_at', [
             'header' => Mage::helper('adminhtml')->__('Created At'),
             'index'  => 'created_at',
             'type'   => 'datetime',
             'width'  => '150px'
-        ));
+        ]);
 
         return parent::_prepareColumns();
     }
@@ -104,7 +104,7 @@ class FireGento_MageSetup_Block_Adminhtml_Newsletter_Subscriber_Status_Grid exte
      */
     public function getGridUrl()
     {
-        return $this->getUrl('*/*/grid', array('_current' => true));
+        return $this->getUrl('*/*/grid', ['_current' => true]);
     }
 
     /**

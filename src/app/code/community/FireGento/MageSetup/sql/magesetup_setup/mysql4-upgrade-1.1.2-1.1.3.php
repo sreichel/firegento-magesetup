@@ -40,13 +40,13 @@ if (version_compare(Mage::getVersion(), '1.6', '<')) {
     $installer->getConnection()->addColumn(
         $installer->getTable('checkout/agreement'),
         'is_required',
-        array(
+        [
                 'type'      => Varien_Db_Ddl_Table::TYPE_SMALLINT,
                 'unsigned'  => true,
                 'nullable'  => false,
                 'default'   => '1',
                 'comment'   => 'Agreement is Required'
-            )
+        ]
     );
 }
 

@@ -31,17 +31,17 @@ class FireGento_MageSetup_Helper_Catalog_Product_Configuration extends Mage_Cata
     /**
      * @var array
      */
-    protected $_finished = array();
+    protected $_finished = [];
 
     /**
      * @var array
      */
-    protected $_products = array();
+    protected $_products = [];
 
     /**
      * @var array
      */
-    protected $_attributes = array();
+    protected $_attributes = [];
 
     /**
      * Merge Attributes
@@ -90,7 +90,7 @@ class FireGento_MageSetup_Helper_Catalog_Product_Configuration extends Mage_Cata
             return $this->_attributes[$itemId];
         }
 
-        return array();
+        return [];
     }
 
     /**
@@ -102,12 +102,12 @@ class FireGento_MageSetup_Helper_Catalog_Product_Configuration extends Mage_Cata
      */
     protected function _getAdditionalData(Mage_Catalog_Model_Product $product)
     {
-        $data = array();
+        $data = [];
 
         $attributes = $product->getAttributes();
         foreach ($attributes as $attribute) {
             if ($attribute->getIsVisibleOnCheckout()) {
-                if (in_array($attribute->getFrontendInput(), array('select', 'multiselect')) && !$product->getData($attribute->getAttributeCode())) {
+                if (in_array($attribute->getFrontendInput(), ['select', 'multiselect']) && !$product->getData($attribute->getAttributeCode())) {
                     continue;
                 }
                 $value = $attribute->getFrontend()->getValue($product);
@@ -118,12 +118,12 @@ class FireGento_MageSetup_Helper_Catalog_Product_Configuration extends Mage_Cata
                 }
 
                 if (is_string($value) && strlen($value)) {
-                    $data[$attribute->getAttributeCode()] = array(
+                    $data[$attribute->getAttributeCode()] = [
                         'label'       => $attribute->getStoreLabel(),
                         'value'       => $value,
                         'print_value' => $value,
                         'code'        => $attribute->getAttributeCode()
-                    );
+                    ];
                 }
             }
         }

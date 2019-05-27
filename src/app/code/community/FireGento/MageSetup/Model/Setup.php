@@ -37,7 +37,7 @@ class FireGento_MageSetup_Model_Setup extends Mage_Core_Model_Abstract
      * @return FireGento_MageSetup_Model_Setup Setup Model
      * @throws Mage_Core_Exception
      */
-    public function setup($params = array(), $notify = false)
+    public function setup($params = [], $notify = false)
     {
         if (!isset($params['country'])) {
             Mage::throwException(
@@ -63,7 +63,7 @@ class FireGento_MageSetup_Model_Setup extends Mage_Core_Model_Abstract
 
         if ($params['cms']) {
             if (!is_array($params['cms_locale'])) {
-                $params['cms_locale'] = array('default' => $params['cms_locale']);
+                $params['cms_locale'] = ['default' => $params['cms_locale']];
             }
             Mage::getSingleton('magesetup/setup_cms')->setup($params['cms_locale']);
 
@@ -76,7 +76,7 @@ class FireGento_MageSetup_Model_Setup extends Mage_Core_Model_Abstract
 
         if ($params['agreements']) {
             if (!is_array($params['cms_locale'])) {
-                $params['cms_locale'] = array('default' => $params['cms_locale']);
+                $params['cms_locale'] = ['default' => $params['cms_locale']];
             }
             Mage::getSingleton('magesetup/setup_agreements')->setup($params['cms_locale']);
 
@@ -89,7 +89,7 @@ class FireGento_MageSetup_Model_Setup extends Mage_Core_Model_Abstract
 
         if ($params['email']) {
             if (!is_array($params['email_locale'])) {
-                $params['email_locale'] = array('default' => $params['email_locale']);
+                $params['email_locale'] = ['default' => $params['email_locale']];
             }
             Mage::getSingleton('magesetup/setup_email')->setup($params['email_locale'], $params['overwrite_emails']);
 
@@ -139,31 +139,31 @@ class FireGento_MageSetup_Model_Setup extends Mage_Core_Model_Abstract
      */
     protected function _getDefaultParams()
     {
-        $productTaxClassTargets = array();
+        $productTaxClassTargets = [];
         foreach (Mage::getSingleton('magesetup/source_tax_productTaxClass')->getAllOptions() as $option) {
             $value = Mage::getSingleton('magesetup/source_tax_newProductTaxClass')->getDefaultOption();
             $productTaxClassTargets[$option['value']] = $value;
         }
 
-        $customerTaxClassTargets = array();
+        $customerTaxClassTargets = [];
         foreach (Mage::getSingleton('magesetup/source_tax_customerTaxClass')->getAllOptions() as $option) {
             $value = Mage::getSingleton('magesetup/source_tax_newCustomerTaxClass')->getDefaultOption();
             $customerTaxClassTargets[$option['value']] = $value;
         }
 
-        return array(
+        return [
             'country'                   => 'de',
             'systemconfig'              => true,
             'cms'                       => true,
-            'cms_locale'                => array('default' => 'de_DE'),
+            'cms_locale'                => ['default' => 'de_DE'],
             'agreements'                => true,
             'email'                     => true,
-            'email_locale'              => array('default' => 'de_DE'),
+            'email_locale'              => ['default' => 'de_DE'],
             'overwrite_emails'          => false,
             'tax'                       => true,
             'product_tax_class_target'  => $productTaxClassTargets,
             'customer_tax_class_target' => $customerTaxClassTargets,
-        );
+        ];
     }
 
     /**
@@ -204,11 +204,11 @@ class FireGento_MageSetup_Model_Setup extends Mage_Core_Model_Abstract
     protected function _markIndicesOutdated()
     {
         // Indexes which need to be updated after setup
-        $indexes = array('catalog_product_price', 'catalog_product_flat', 'catalog_product_attribute');
+        $indexes = ['catalog_product_price', 'catalog_product_flat', 'catalog_product_attribute'];
 
         $indices = Mage::getModel('index/process')
             ->getCollection()
-            ->addFieldToFilter('indexer_code', array('in' => $indexes));
+            ->addFieldToFilter('indexer_code', ['in' => $indexes]);
 
         foreach ($indices as $index) {
             $index->setStatus(Mage_Index_Model_Process::STATUS_REQUIRE_REINDEX)->save();

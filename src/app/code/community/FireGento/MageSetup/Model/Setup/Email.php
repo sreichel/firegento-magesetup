@@ -31,7 +31,7 @@ class FireGento_MageSetup_Model_Setup_Email extends FireGento_MageSetup_Model_Se
     /**
      * @var array
      */
-    protected $_localeTemplatePath = array();
+    protected $_localeTemplatePath = [];
 
     /**
      * Setup Transaction Emails
@@ -40,7 +40,7 @@ class FireGento_MageSetup_Model_Setup_Email extends FireGento_MageSetup_Model_Se
      * @param bool $overwrite Flag if locale options should override existing templates
      * @throws Exception
      */
-    public function setup($locale = array('default' => 'de_DE'), $overwrite = false)
+    public function setup($locale = ['default' => 'de_DE'], $overwrite = false)
     {
         foreach ($locale as $storeId => $localeCode) {
             if (!$localeCode) {
@@ -174,7 +174,7 @@ class FireGento_MageSetup_Model_Setup_Email extends FireGento_MageSetup_Model_Se
      * @param  array  $blocks       all blocks that should be inserted before penultimate </table>
      * @return string the content of the template with the block before penultimate </table>
      */
-    protected function _addFooterBlocks($templateText, array $blocks = array())
+    protected function _addFooterBlocks($templateText, array $blocks = [])
     {
         $origTemplateText = $templateText;
         $lastPos = strripos($templateText, '</table>');
@@ -204,7 +204,7 @@ class FireGento_MageSetup_Model_Setup_Email extends FireGento_MageSetup_Model_Se
     protected function _getFooterBlocks($emailData)
     {
         $configFooters = $this->_getConfigEmailFooters();
-        $blocks = array();
+        $blocks = [];
         if ($emailData['add_footer'] == 1) {
             $blocks[] = $configFooters['footer'];
         }

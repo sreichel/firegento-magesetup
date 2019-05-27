@@ -29,7 +29,7 @@
 /* @var Mage_Eav_Model_Entity_Setup $this */
 $installer = $this;
 
-$data = array(
+$data = [
     'AG' => 'Agrigento',
     'AL' => 'Alessandria',
     'AN' => 'Ancona',
@@ -140,7 +140,7 @@ $data = array(
     'VV' => 'Vibo Valentia',
     'VI' => 'Vicenza',
     'VT' => 'Viterbo',
-);
+];
 
 /* @var Mage_Directory_Model_Region $region */
 $region = Mage::getModel('directory/region');
@@ -154,18 +154,18 @@ foreach ($data as $code => $name) {
         continue;
     }
 
-    $bind = array(
+    $bind = [
         'country_id' => 'IT',
         'code' => $code,
         'default_name' => $name,
-    );
+    ];
     $installer->getConnection()->insert($regionTable, $bind);
     $regionId = $installer->getConnection()->lastInsertId($regionTable);
 
-    $bind = array(
+    $bind = [
         'locale' => 'en_US',
         'region_id' => $regionId,
         'name' => $name,
-    );
+    ];
     $installer->getConnection()->insert($regionNameTable, $bind);
 }

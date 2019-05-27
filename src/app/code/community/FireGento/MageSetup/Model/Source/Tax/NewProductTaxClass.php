@@ -31,7 +31,7 @@ class FireGento_MageSetup_Model_Source_Tax_NewProductTaxClass extends Mage_Eav_M
     /**
      * @var array $_options cached options
      */
-    protected $_options = array();
+    protected $_options = [];
 
     /**
      * @var string
@@ -55,12 +55,12 @@ class FireGento_MageSetup_Model_Source_Tax_NewProductTaxClass extends Mage_Eav_M
                     continue;
                 }
 
-                $this->_options[] = array(
+                $this->_options[] = [
                     'value' => $taxClass['class_id'],
                     'label' => $taxClass['class_name'],
-                );
+                ];
             }
-            array_unshift($this->_options, array('value' => '', 'label' => ''));
+            array_unshift($this->_options, ['value' => '', 'label' => '']);
         }
 
         return $this->_options;

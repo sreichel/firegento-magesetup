@@ -26,17 +26,19 @@
 $helper = $this->helper('magesetup');
 ?>
 
-<?php if (!$this->getAgreements()) return; ?>
+<?php if (!$this->getAgreements()) {
+    return;
+} ?>
 
 <ol class="checkout-agreements">
 <?php foreach ($this->getAgreements() as $_a): ?>
     <li>
         <p class="agree">
-            <?php if($_a->getIsRequired()): ?>
+            <?php if ($_a->getIsRequired()): ?>
                 <input type="checkbox" id="agreement-<?php echo $_a->getId()?>" name="agreement[<?php echo $_a->getId()?>]" value="1" title="<?php echo $this->escapeHtml($_a->getCheckboxText()) ?>" class="checkbox" />
             <?php endif; ?>
             <label for="agreement-<?php echo $_a->getId()?>"><?php echo $_a->getIsHtml() ? $_a->getCheckboxText() : $this->escapeHtml($_a->getCheckboxText()) ?></label>
-            <a href="#" onclick="window.open('<?php echo $this->getUrl('magesetup/frontend/agreements', array('id' => $_a->getId())) ?>', '', 'width=600,height=600,left=0,top=0,location=no,status=yes,scrollbars=yes,resizable=yes').focus(); return false;"><?php echo $this->__('[Show]') ?></a>
+            <a href="#" onclick="window.open('<?php echo $this->getUrl('magesetup/frontend/agreements', ['id' => $_a->getId()]) ?>', '', 'width=600,height=600,left=0,top=0,location=no,status=yes,scrollbars=yes,resizable=yes').focus(); return false;"><?php echo $this->__('[Show]') ?></a>
         </p>
     </li>
 <?php endforeach ?>

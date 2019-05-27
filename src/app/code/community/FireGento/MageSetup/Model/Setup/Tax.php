@@ -62,7 +62,7 @@ class FireGento_MageSetup_Model_Setup_Tax extends FireGento_MageSetup_Model_Setu
         $this->_truncateTable('tax/tax_calculation');
 
         // Tax classes
-        $taxClasses = array();
+        $taxClasses = [];
         foreach ($this->_getConfigTaxClasses() as $identifier => $data) {
             if ($data['execute'] == 1) {
                 unset($data['default']);
@@ -71,9 +71,9 @@ class FireGento_MageSetup_Model_Setup_Tax extends FireGento_MageSetup_Model_Setu
         }
 
         // Tax Rates
-        $taxRates = array();
+        $taxRates = [];
         foreach ($this->_getConfigTaxCalcRates() as $identifier => $data) {
-            $taxRates[$identifier] = array();
+            $taxRates[$identifier] = [];
 
             if ($data['execute'] == 1) {
                 foreach ($this->_getCountries() as $country) {
@@ -99,7 +99,7 @@ class FireGento_MageSetup_Model_Setup_Tax extends FireGento_MageSetup_Model_Setu
                             break;
                         case 'tax_customer_class':
                         case 'tax_product_class':
-                            $classes = array();
+                            $classes = [];
                             foreach (explode(',', (string)$values) as $value) {
                                 if (isset($taxClasses[$value])) {
                                     $classes[] = $taxClasses[$value];
@@ -132,7 +132,7 @@ class FireGento_MageSetup_Model_Setup_Tax extends FireGento_MageSetup_Model_Setu
             return Mage::helper('magesetup')->getEUCountries();
         }
 
-        return array(strtoupper($this->getCountryId()));
+        return [strtoupper($this->getCountryId())];
     }
 
     /**
@@ -201,11 +201,11 @@ class FireGento_MageSetup_Model_Setup_Tax extends FireGento_MageSetup_Model_Setu
         // add labels to all store views
         if ($label) {
             foreach (Mage::app()->getStores() as $storeId => $store) {
-                $bind = array(
+                $bind = [
                     'tax_calculation_rate_id' => $rateId,
                     'store_id'                => $storeId,
                     'value'                   => $label,
-                );
+                ];
                 $this->_insertIntoTable('tax/tax_calculation_rate_title', $bind);
             }
         }

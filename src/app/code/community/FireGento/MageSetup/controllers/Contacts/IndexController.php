@@ -84,14 +84,14 @@ class FireGento_MageSetup_Contacts_IndexController extends Mage_Contacts_IndexCo
                 }
                 $mailTemplate = Mage::getModel('core/email_template');
                 /* @var Mage_Core_Model_Email_Template $mailTemplate */
-                $mailTemplate->setDesignConfig(array('area' => 'frontend'))
+                $mailTemplate->setDesignConfig(['area' => 'frontend'])
                     ->setReplyTo($post['email'])
                     ->sendTransactional(
                         Mage::getStoreConfig(self::XML_PATH_EMAIL_TEMPLATE),
                         Mage::getStoreConfig(self::XML_PATH_EMAIL_SENDER),
                         Mage::getStoreConfig(self::XML_PATH_EMAIL_RECIPIENT),
                         null,
-                        array('data' => $postObject)
+                        ['data' => $postObject]
                     );
 
                 if (!$mailTemplate->getSentSuccess()) {

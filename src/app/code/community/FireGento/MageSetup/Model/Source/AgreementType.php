@@ -42,24 +42,24 @@ class FireGento_MageSetup_Model_Source_AgreementType
     {
         $helper = Mage::helper('magesetup');
 
-        return array(
-            array(
+        return [
+            [
                 'value' => self::AGREEMENT_TYPE_CHECKOUT,
                 'label' => $helper->__('On checkout (Magento Default)')
-            ),
-            array(
+            ],
+            [
                 'value' => self::AGREEMENT_TYPE_CUSTOMER,
                 'label' => $helper->__('On customer registration (or on checkout, if customer not registered before)')
-            ),
-            array(
+            ],
+            [
                 'value' => self::AGREEMENT_TYPE_BOTH,
                 'label' => $helper->__('On customer registration and on checkout')
-            ),
-            array(
+            ],
+            [
                 'value' => self::AGREEMENT_TYPE_NOWHERE,
                 'label' => $helper->__('Nowhere')
-            ),
-        );
+            ],
+        ];
     }
 
     /**
@@ -69,7 +69,7 @@ class FireGento_MageSetup_Model_Source_AgreementType
      */
     public function getOptionArray()
     {
-        $options = array();
+        $options = [];
         foreach ($this->toOptionArray() as $option) {
             $options[$option['value']] = $option['label'];
         }

@@ -48,7 +48,7 @@ class FireGento_MageSetup_Helper_Checkout_Data extends Mage_Checkout_Helper_Data
     {
         if (is_null($this->_agreements)) {
             if (!Mage::getStoreConfigFlag('checkout/options/enable_agreements')) {
-                $this->_agreements = array();
+                $this->_agreements = [];
             } else {
                 $agreements = Mage::getModel('checkout/agreement')->getCollection()
                     ->addStoreFilter(Mage::app()->getStore()->getId())
@@ -56,16 +56,16 @@ class FireGento_MageSetup_Helper_Checkout_Data extends Mage_Checkout_Helper_Data
                     ->addFieldToFilter('is_required', 1); // Only get Required Elements
 
                 if ($this->_getCustomerSession()->isLoggedIn()) {
-                    $agreements->addFieldToFilter('agreement_type', array('in' => array(
+                    $agreements->addFieldToFilter('agreement_type', ['in' => [
                         FireGento_MageSetup_Model_Source_AgreementType::AGREEMENT_TYPE_CHECKOUT,
                         FireGento_MageSetup_Model_Source_AgreementType::AGREEMENT_TYPE_BOTH,
-                    )));
+                    ]]);
                 } else {
-                    $agreements->addFieldToFilter('agreement_type', array('in' => array(
+                    $agreements->addFieldToFilter('agreement_type', ['in' => [
                         FireGento_MageSetup_Model_Source_AgreementType::AGREEMENT_TYPE_CUSTOMER,
                         FireGento_MageSetup_Model_Source_AgreementType::AGREEMENT_TYPE_CHECKOUT,
                         FireGento_MageSetup_Model_Source_AgreementType::AGREEMENT_TYPE_BOTH,
-                    )));
+                    ]]);
                 }
 
                 $this->_addRevocationProductTypesFilter($agreements);
@@ -97,11 +97,11 @@ class FireGento_MageSetup_Helper_Checkout_Data extends Mage_Checkout_Helper_Data
     {
         /** @var Mage_Catalog_Model_Resource_Product_Collection $productCollection */
         $productCollection = Mage::getResourceModel('catalog/product_collection')
-            ->addAttributeToFilter('entity_id', array('in' => $this->_getProductIdsInQuote()))
+            ->addAttributeToFilter('entity_id', ['in' => $this->_getProductIdsInQuote()])
             ->joinAttribute('revocation_product_type', 'catalog_product/revocation_product_type', 'entity_id', null, 'left')
             ->addAttributeToSelect('revocation_product_type');
 
-        $revocationProductTypes = array(FireGento_MageSetup_Model_Source_RevocationProductType::REVOCATION_PRODUCT_TYPE_ALL => FireGento_MageSetup_Model_Source_RevocationProductType::REVOCATION_PRODUCT_TYPE_ALL);
+        $revocationProductTypes = [FireGento_MageSetup_Model_Source_RevocationProductType::REVOCATION_PRODUCT_TYPE_ALL => FireGento_MageSetup_Model_Source_RevocationProductType::REVOCATION_PRODUCT_TYPE_ALL];
         $defaultRevocationProductType = Mage::getStoreConfig('checkout/options/default_revocation_product_type');
 
         foreach ($productCollection->getColumnValues('revocation_product_type') as $revocationProductType) {
@@ -112,7 +112,7 @@ class FireGento_MageSetup_Helper_Checkout_Data extends Mage_Checkout_Helper_Data
             }
         }
 
-        $agreements->addFieldToFilter('revocation_product_type', array('in' => $revocationProductTypes));
+        $agreements->addFieldToFilter('revocation_product_type', ['in' => $revocationProductTypes]);
     }
 
     /**
@@ -130,7 +130,7 @@ class FireGento_MageSetup_Helper_Checkout_Data extends Mage_Checkout_Helper_Data
      */
     protected function _getProductIdsInQuote()
     {
-        $productIds = array();
+        $productIds = [];
         foreach ($this->_getQuote()->getAllItems() as $item) {
             /** @var Mage_Sales_Model_Quote_Item $item */
 

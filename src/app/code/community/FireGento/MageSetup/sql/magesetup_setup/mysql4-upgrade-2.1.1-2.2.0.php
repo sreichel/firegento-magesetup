@@ -33,7 +33,7 @@ $installer->startSetup();
 $installer->addAttribute(
     'catalog_product',
     'revocation_product_type',
-    array(
+    [
         'label' => 'Revocation Product Type (for extra checkout agreements)',
         'input' => 'select',
         'source' => 'magesetup/source_revocationProductType',
@@ -51,7 +51,7 @@ $installer->addAttribute(
         'used_in_product_listing' => false,
         'is_html_allowed_on_front' => false,
         'sort_order' => 200,
-    )
+    ]
 );
 
 if (version_compare(Mage::getVersion(), '1.6', '<')) {
@@ -64,13 +64,13 @@ if (version_compare(Mage::getVersion(), '1.6', '<')) {
     $installer->getConnection()->addColumn(
         $installer->getTable('checkout/agreement'),
         'revocation_product_type',
-        array(
+        [
             'type'      => Varien_Db_Ddl_Table::TYPE_TEXT,
             'length'    => 255,
             'nullable'  => false,
             'default'   => '',
             'comment'   => 'Revocation Product Type'
-        )
+        ]
     );
 }
 

@@ -34,7 +34,7 @@ class FireGento_MageSetup_Model_Setup_Agreements extends FireGento_MageSetup_Mod
      * @param array $locale Locale options
      * @throws Zend_Validate_Exception
      */
-    public function setup($locale = array('default' => 'de_DE'))
+    public function setup($locale = ['default' => 'de_DE'])
     {
         foreach ($locale as $storeId => $localeCode) {
             if (!$localeCode) {
@@ -104,7 +104,7 @@ class FireGento_MageSetup_Model_Setup_Agreements extends FireGento_MageSetup_Mod
         // Remove comment lines
         $templateContent = preg_replace('#\{\*.*\*\}#suU', '', $templateContent);
 
-        $agreementData = array(
+        $agreementData = [
             'name'                    => $name,
             'content'                 => $templateContent,
             'checkbox_text'           => $checkboxText,
@@ -114,7 +114,7 @@ class FireGento_MageSetup_Model_Setup_Agreements extends FireGento_MageSetup_Mod
             'agreement_type'          => $agreementData['agreement_type'],
             'revocation_product_type' => isset($agreementData['revocation_product_type']) ? $agreementData['revocation_product_type'] : '',
             'stores'                  => $storeId ? $storeId : 0,
-        );
+        ];
 
         /* @var Mage_Checkout_Model_Agreement $agreement */
         $agreement = Mage::getModel('checkout/agreement')->setStoreId($storeId)->load($agreementData['name'], 'name');

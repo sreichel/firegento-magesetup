@@ -28,11 +28,11 @@
 $installer = $this;
 $installer->startSetup();
 
-$bind = array('value' => 1);
-$where = array(
+$bind = ['value' => 1];
+$where = [
     'path = ?'  => FireGento_MageSetup_Model_Tax_Config::XML_PATH_SHIPPING_TAX_ON_PRODUCT_TAX,
     'value = ?' => '2'
-);
+];
 
 $result = $installer->getConnection()->update(
     $installer->getTable('core/config_data'),

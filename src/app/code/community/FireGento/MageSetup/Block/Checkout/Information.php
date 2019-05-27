@@ -52,8 +52,8 @@ class FireGento_MageSetup_Block_Checkout_Information extends Mage_Core_Block_Tem
         }
 
         // Dispatch Event in order to allow adding more additional information texts
-        $additionalObject = new Varien_Object(array('text' => $additional));
-        Mage::dispatchEvent('checkout_additional_information', array('additional' => $additionalObject));
+        $additionalObject = new Varien_Object(['text' => $additional]);
+        Mage::dispatchEvent('checkout_additional_information', ['additional' => $additionalObject]);
         $additional = $additionalObject->getText();
 
         if (!$additional) {

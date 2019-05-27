@@ -43,20 +43,20 @@ class FireGento_MageSetup_Model_Source_RevocationProductType extends Mage_Eav_Mo
     {
         $helper = Mage::helper('magesetup');
 
-        return array(
-            array(
+        return [
+            [
                 'value' => self::REVOCATION_PRODUCT_TYPE_GOODS,
                 'label' => $helper->__('Delivery of Goods')
-            ),
-            array(
+            ],
+            [
                 'value' => self::REVOCATION_PRODUCT_TYPE_DIGITAL,
                 'label' => $helper->__('Digital Content')
-            ),
-            array(
+            ],
+            [
                 'value' => self::REVOCATION_PRODUCT_TYPE_SERVICE,
                 'label' => $helper->__('Service')
-            ),
-        );
+            ],
+        ];
     }
 
     /**
@@ -66,10 +66,10 @@ class FireGento_MageSetup_Model_Source_RevocationProductType extends Mage_Eav_Mo
      */
     public function getAllOptions()
     {
-        $options = array_merge(array(array(
+        $options = array_merge([[
             'value' => self::REVOCATION_PRODUCT_TYPE_DEFAULT,
             'label' => Mage::helper('magesetup')->__('Default (Configuration)'),
-        )), $this->toOptionArray());
+        ]], $this->toOptionArray());
 
         return $options;
     }
@@ -81,9 +81,9 @@ class FireGento_MageSetup_Model_Source_RevocationProductType extends Mage_Eav_Mo
      */
     public function getOptionArray()
     {
-        $options = array(
+        $options = [
             self::REVOCATION_PRODUCT_TYPE_ALL => Mage::helper('magesetup')->__('All')
-        );
+        ];
         foreach ($this->toOptionArray() as $option) {
             $options[$option['value']] = $option['label'];
         }

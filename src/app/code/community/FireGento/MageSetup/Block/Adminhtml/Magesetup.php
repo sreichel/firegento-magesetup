@@ -177,7 +177,7 @@ class FireGento_MageSetup_Block_Adminhtml_Magesetup extends Mage_Adminhtml_Block
     {
         $moduleDir = Mage::getConfig()->getModuleDir('etc', 'FireGento_MageSetup');
 
-        $countryTaxClasses = array();
+        $countryTaxClasses = [];
         foreach (Mage::helper('magesetup')->getAvailableCountries() as $countryId => $countryName) {
             // Get the config file for the given country
             $fileName = 'tax.xml';
@@ -219,7 +219,7 @@ class FireGento_MageSetup_Block_Adminhtml_Magesetup extends Mage_Adminhtml_Block
     {
         $moduleDir = Mage::getConfig()->getModuleDir('etc', 'FireGento_MageSetup');
 
-        $countryTaxClasses = array();
+        $countryTaxClasses = [];
         foreach (Mage::helper('magesetup')->getAvailableCountries() as $countryId => $countryName) {
             // Get the config file for the given country
             $fileName = 'tax.xml';

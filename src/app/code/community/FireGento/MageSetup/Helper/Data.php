@@ -50,7 +50,7 @@ class FireGento_MageSetup_Helper_Data extends Mage_Core_Helper_Abstract
             if (!$cmsPage->getId() || !$cmsPage->getIsActive()) {
                 static::$_shippingCostUrl = '';
             } else {
-                static::$_shippingCostUrl = Mage::getUrl(null, array('_direct' => $cmsPage->getIdentifier()));
+                static::$_shippingCostUrl = Mage::getUrl(null, ['_direct' => $cmsPage->getIdentifier()]);
             }
         }
 
@@ -65,7 +65,7 @@ class FireGento_MageSetup_Helper_Data extends Mage_Core_Helper_Abstract
      */
     public function getAgreementUrl(Mage_Checkout_Model_Agreement $agreement)
     {
-        return Mage::getUrl('magesetup/frontend/agreements', array('id' => $agreement->getId()));
+        return Mage::getUrl('magesetup/frontend/agreements', ['id' => $agreement->getId()]);
     }
 
     /**
@@ -75,7 +75,7 @@ class FireGento_MageSetup_Helper_Data extends Mage_Core_Helper_Abstract
      */
     public function getAvailableCountries()
     {
-        $availableCountries = array();
+        $availableCountries = [];
         $config = Mage::getConfig()->getNode('global/magesetup/available_countries');
         if ($config) {
             foreach (array_keys($config->asArray()) as $countryId) {
@@ -119,7 +119,7 @@ class FireGento_MageSetup_Helper_Data extends Mage_Core_Helper_Abstract
         $isInitialized = (bool)$isInitialized ? '1' : '0';
         Mage::getModel('eav/entity_setup', 'core_setup')->setConfigData('magesetup/is_initialized', $isInitialized);
         Mage::app()->getCacheInstance()->cleanType('config');
-        Mage::dispatchEvent('adminhtml_cache_refresh_type', array('type' => 'config'));
+        Mage::dispatchEvent('adminhtml_cache_refresh_type', ['type' => 'config']);
     }
 
     /**

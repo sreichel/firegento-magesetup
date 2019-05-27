@@ -45,7 +45,7 @@ class FireGento_MageSetup_Model_Config extends Varien_Simplexml_Config
     public function __construct($sourceData = null)
     {
         $this->setCacheId(self::CACHE_ID);
-        $this->setCacheTags(array(self::CACHE_TAG));
+        $this->setCacheTags([self::CACHE_TAG]);
         parent::__construct($sourceData);
         $this->_loadConfig();
     }

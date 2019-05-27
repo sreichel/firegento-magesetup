@@ -57,9 +57,9 @@ class FireGento_MageSetup_Model_Tax_Config extends Mage_Tax_Model_Config
             // by the session because of the changed currency, which in turn ends up in this
             // method, which again triggers collectTotals() by getting the quote from the
             // session model, ending in a recursion loop.
-            $quoteItems = array();
+            $quoteItems = [];
         }
-        $taxClassIds = array();
+        $taxClassIds = [];
         $highestTaxRate = null;
 
         // Check if feature is enabled and if there are products in cart
@@ -72,7 +72,7 @@ class FireGento_MageSetup_Model_Tax_Config extends Mage_Tax_Model_Config
         }
 
         // Fetch the tax rates from the quote items
-        $taxClassSums = array();
+        $taxClassSums = [];
         foreach ($quoteItems as $item) {
             /** @var Mage_Sales_Model_Quote_Item $item */
             if ($item->getParentItem()) {
