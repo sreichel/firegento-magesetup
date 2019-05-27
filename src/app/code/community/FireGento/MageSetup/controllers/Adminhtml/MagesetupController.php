@@ -133,6 +133,9 @@ class FireGento_MageSetup_Adminhtml_MagesetupController extends Mage_Adminhtml_C
         return $params;
     }
 
+    /**
+     * @return bool
+     */
     protected function _isAllowed()
     {
         return Mage::getSingleton('admin/session')->isAllowed('system/magesetup');

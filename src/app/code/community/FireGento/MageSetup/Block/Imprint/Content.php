@@ -88,7 +88,7 @@ class FireGento_MageSetup_Block_Imprint_Content extends Mage_Core_Block_Template
     /**
      * Retrieve the specific country name by the selected country code
      *
-     * @return string Country
+     * @return array Country
      */
     public function getCountry()
     {
@@ -101,7 +101,7 @@ class FireGento_MageSetup_Block_Imprint_Content extends Mage_Core_Block_Template
      * Try to limit spam by generating a javascript email link
      *
      * @param boolean true
-     * @return string
+     * @return string|null
      */
     public function getEmail($antispam = false)
     {
@@ -113,7 +113,7 @@ class FireGento_MageSetup_Block_Imprint_Content extends Mage_Core_Block_Template
         }
 
         if (count($parts) == 0) {
-            return;
+            return null;
         }
 
         $html = '<a href="#" onclick="javascript:toRecipient();">';

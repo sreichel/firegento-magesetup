@@ -73,6 +73,9 @@ class FireGento_MageSetup_Adminhtml_NewsletterController extends Mage_Adminhtml_
         );
     }
 
+    /**
+     * @return bool
+     */
     protected function _isAllowed()
     {
         return Mage::getSingleton('admin/session')->isAllowed('newsletter/subscriber_status');

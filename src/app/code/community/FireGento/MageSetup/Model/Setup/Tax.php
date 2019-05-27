@@ -216,7 +216,7 @@ class FireGento_MageSetup_Model_Setup_Tax extends FireGento_MageSetup_Model_Setu
     /**
      * Get tax calculations from config file
      *
-     * @return Varien_Simplexml_Element
+     * @return SimpleXMLElement[]
      */
     public function _getConfigTaxCalculations()
     {

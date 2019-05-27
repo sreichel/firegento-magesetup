@@ -124,6 +124,7 @@ class FireGento_MageSetup_Model_Config extends Varien_Simplexml_Config
      *
      * @param string $fileName File to load
      * @param Mage_Core_Model_Config_Base $mergeConfig Global config for merging
+     * @param bool $overwrite
      * @throws Zend_Validate_Exception
      */
     protected function _addConfigFile($fileName, $mergeConfig, $overwrite = true)

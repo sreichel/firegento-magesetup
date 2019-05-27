@@ -156,7 +156,8 @@ class FireGento_MageSetup_Model_Observer
      * Get the categories of the current product
      *
      * @param Mage_Catalog_Model_Product $product Product
-     * @return array Categories
+     * @param int $storeid
+     * @return string
      * @throws Mage_Core_Model_Store_Exception
      */
     protected function _getCategoryKeywords($product, $storeid = 0)
@@ -173,10 +174,11 @@ class FireGento_MageSetup_Model_Observer
      * categories and second all categories via path.
      *
      * @param array $categories Category Ids
+     * @param int $storeid
      * @return array Categories
      * @throws Mage_Core_Model_Store_Exception
      */
-    protected function _fetchCategoryNames($categories, $storeid=0)
+    protected function _fetchCategoryNames($categories, $storeid = 0)
     {
         $return = array(
             'assigned' => array(),
@@ -343,6 +345,7 @@ class FireGento_MageSetup_Model_Observer
      * Event: <controller_action_predispatch_customer_account_createpost>
      *
      * @param Varien_Event_Observer $observer Observer
+     * @throws Mage_Core_Model_Store_Exception
      */
     public function customerCreatePreDispatch(Varien_Event_Observer $observer)
     {
@@ -363,6 +366,11 @@ class FireGento_MageSetup_Model_Observer
         }
     }
 
+    /**
+     * @param $controller
+     * @return bool
+     * @throws Mage_Core_Model_Store_Exception
+     */
     private function requiredAgreementsAccepted($controller)
     {
         $requiredAgreements = $this->_getCustomerCreateAgreements();

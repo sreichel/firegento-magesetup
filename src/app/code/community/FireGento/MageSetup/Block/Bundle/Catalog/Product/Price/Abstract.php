@@ -32,19 +32,18 @@ if (Mage::getConfig()->getModuleConfig('Sitewards_B2BProfessional')->is('active'
     && version_compare(Mage::getConfig()->getModuleConfig('Sitewards_B2BProfessional')->version, '2.1.0', '<=')
 ) {
 
-    abstract class FireGento_MageSetup_Block_Bundle_Catalog_Product_Price_Abstract
-        extends Sitewards_B2BProfessional_Block_Price
+    /**
+     * Class FireGento_MageSetup_Block_Bundle_Catalog_Product_Price_Abstract
+     */
+    abstract class FireGento_MageSetup_Block_Bundle_Catalog_Product_Price_Abstract extends Sitewards_B2BProfessional_Block_Price
     {
-
     }
-
 } else {
-
-    abstract class FireGento_MageSetup_Block_Bundle_Catalog_Product_Price_Abstract
-        extends Mage_Bundle_Block_Catalog_Product_Price
+    /**
+     * Class FireGento_MageSetup_Block_Bundle_Catalog_Product_Price_Abstract
+     */
+    abstract class FireGento_MageSetup_Block_Bundle_Catalog_Product_Price_Abstract extends Mage_Bundle_Block_Catalog_Product_Price
     {
-
     }
-
 }
 // @codingStandardsIgnoreEnd

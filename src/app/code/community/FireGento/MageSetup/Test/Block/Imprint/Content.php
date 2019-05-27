@@ -74,6 +74,7 @@ class FireGento_MageSetup_Test_Block_Imprint_Content extends EcomDev_PHPUnit_Tes
      * @loadFixture generalImprint
      * @dataProvider dataProvider
      * @loadExpectations
+     * @param $checkForProtocol
      */
     public function testGetWeb($checkForProtocol)
     {
@@ -94,6 +95,7 @@ class FireGento_MageSetup_Test_Block_Imprint_Content extends EcomDev_PHPUnit_Tes
      * @loadFixture generalImprint
      * @dataProvider dataProvider
      * @loadExpectations
+     * @param $antispam
      */
     public function testGetEmail($antispam)
     {

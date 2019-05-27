@@ -33,36 +33,32 @@ if (
     Mage::getConfig()->getModuleConfig('Sitewards_B2BProfessional')->is('active', 'true')
     && version_compare(Mage::getConfig()->getModuleConfig('Sitewards_B2BProfessional')->version, '2.1.0', '<=')
 ) {
-
-    abstract class FireGento_MageSetup_Block_Catalog_Product_Price_Abstract
-        extends Sitewards_B2BProfessional_Block_Price
+    /**
+     * Class FireGento_MageSetup_Block_Catalog_Product_Price_Abstract
+     */
+    abstract class FireGento_MageSetup_Block_Catalog_Product_Price_Abstract extends Sitewards_B2BProfessional_Block_Price
     {
-
     }
-
 } elseif (Mage::getConfig()->getModuleConfig('Belvg_CallForPrice')->is('active', 'true')) {
-
-    abstract class FireGento_MageSetup_Block_Catalog_Product_Price_Abstract
-        extends Belvg_CallForPrice_Block_Catalog_Product_Price
+    /**
+     * Class FireGento_MageSetup_Block_Catalog_Product_Price_Abstract
+     */
+    abstract class FireGento_MageSetup_Block_Catalog_Product_Price_Abstract extends Belvg_CallForPrice_Block_Catalog_Product_Price
     {
-
     }
-
 } elseif (Mage::getConfig()->getModuleConfig('OrganicInternet_SimpleConfigurableProducts')->is('active', 'true')) {
-
-    abstract class FireGento_MageSetup_Block_Catalog_Product_Price_Abstract
-        extends OrganicInternet_SimpleConfigurableProducts_Catalog_Block_Product_Price
+    /**
+     * Class FireGento_MageSetup_Block_Catalog_Product_Price_Abstract
+     */
+    abstract class FireGento_MageSetup_Block_Catalog_Product_Price_Abstract extends OrganicInternet_SimpleConfigurableProducts_Catalog_Block_Product_Price
     {
-
     }
-
 } else {
-
-    abstract class FireGento_MageSetup_Block_Catalog_Product_Price_Abstract
-        extends Mage_Catalog_Block_Product_Price
+    /**
+     * Class FireGento_MageSetup_Block_Catalog_Product_Price_Abstract
+     */
+    abstract class FireGento_MageSetup_Block_Catalog_Product_Price_Abstract extends Mage_Catalog_Block_Product_Price
     {
-
     }
-
 }
 // @codingStandardsIgnoreEnd

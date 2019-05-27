@@ -23,11 +23,16 @@ class FireGento_MageSetup_Helper_Contacts extends Mage_Core_Helper_Abstract
 {
     const XML_PATH_ACCEPT_AGREEMENT   = 'contacts/contacts/accept_agreement';
 
-    /** @var string $_moduleName Module name */
+    /**
+     * @var string $_moduleName Module name
+     */
     protected $_moduleName = 'FireGento_MageSetup';
 
+    /**
+     * @return bool
+     */
     public function isAcceptAgreement()
     {
-        return Mage::getStoreConfig(self::XML_PATH_ACCEPT_AGREEMENT);
+        return Mage::getStoreConfigFlag(self::XML_PATH_ACCEPT_AGREEMENT);
     }
 }

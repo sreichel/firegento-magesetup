@@ -33,6 +33,9 @@
  */
 require_once Mage::getModuleDir('controllers', 'Mage_Contacts') . DS . 'IndexController.php';
 
+/**
+ * Class FireGento_MageSetup_Contacts_IndexController
+ */
 class FireGento_MageSetup_Contacts_IndexController extends Mage_Contacts_IndexController
 {
     const XML_PATH_EMAIL_RECIPIENT  = 'contacts/email/recipient_email';
