@@ -40,7 +40,7 @@ class FireGento_MageSetup_Block_Catalog_Product_Price extends FireGento_MageSetu
     /**
      * Add the tierprice default templates
      *
-     * @return FireGento_MageSetup_Block_Catalog_Product_Price
+     * @inheritDoc
      */
     protected function _beforeToHtml()
     {

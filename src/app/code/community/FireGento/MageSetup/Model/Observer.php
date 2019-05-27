@@ -175,7 +175,7 @@ class FireGento_MageSetup_Model_Observer
      *
      * @param array $categories Category Ids
      * @param int $storeid
-     * @return array Categories
+     * @return array|void Categories
      * @throws Mage_Core_Model_Store_Exception
      */
     protected function _fetchCategoryNames($categories, $storeid = 0)

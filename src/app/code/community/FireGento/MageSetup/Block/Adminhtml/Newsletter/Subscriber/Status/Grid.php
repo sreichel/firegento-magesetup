@@ -44,10 +44,11 @@ class FireGento_MageSetup_Block_Adminhtml_Newsletter_Subscriber_Status_Grid exte
     /**
      * Prepares the grid collection
      *
-     * @return FireGento_MageSetup_Block_Adminhtml_Newsletter_Subscriber_Status_Grid Grid
+     * @inheritDoc
      */
     protected function _prepareCollection()
     {
+        /** @var FireGento_MageSetup_Model_Resource_Newsletter_Subscriber_Status_Collection $collection */
         $collection = Mage::getResourceModel('magesetup/newsletter_subscriber_status_collection');
         $this->setCollection($collection);
 
