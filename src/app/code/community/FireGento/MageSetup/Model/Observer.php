@@ -201,7 +201,6 @@ class FireGento_MageSetup_Model_Observer
             $path = $category->getPath();
             $pathIds = explode('/', $path);
             // Fetch path ids and remove the first two (base and root category)
-            $categorySuperRootCategoryId = array_shift($pathIds);
             $categoryRootCategoryId = array_shift($pathIds);
 
             // use category names only if root category id matches
@@ -379,7 +378,7 @@ class FireGento_MageSetup_Model_Observer
         } elseif (is_array($requiredAgreements) && count($requiredAgreements) === 0) {
             return true;
         }
-        
+
         $postedAgreements = $controller->getRequest()->getPost('agreement', []);
         if (!is_array($postedAgreements)) {
             return false;
